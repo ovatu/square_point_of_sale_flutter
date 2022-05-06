@@ -1,2 +1,15 @@
-# square_point_of_sale_flutter
-A Flutter wrapper to use the Square Point of Sale SDK. With this plugin, your app can easily open Square POS and accept card payments on Android and iOS.
+# square_pos
+
+A new flutter plugin project.
+
+## Getting Started
+
+This project is a starting point for a Flutter
+[plug-in package](https://flutter.dev/developing-packages/),
+a specialized package that includes platform-specific implementation code for
+Android and/or iOS.
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+

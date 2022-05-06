@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - square_pos (0.0.1):
+    - Flutter
+    - SquarePointOfSaleSDK (= 3.5.2)
+  - SquarePointOfSaleSDK (3.5.2)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - square_pos (from `.symlinks/plugins/square_pos/ios`)
+
+SPEC REPOS:
+  trunk:
+    - SquarePointOfSaleSDK
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  square_pos:
+    :path: ".symlinks/plugins/square_pos/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  square_pos: 44259644ff5cee117eba98a40aa242cfc48d8d13
+  SquarePointOfSaleSDK: 4cf96f9702f56171b3e9f8615acadf97879062f5
+
+PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
+
+COCOAPODS: 1.11.3
