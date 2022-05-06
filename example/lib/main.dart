@@ -16,24 +16,31 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  bool? _canRequest;
+  String? _message;
+  SquarePosPaymentResponse? _response;
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    initSquarePOS();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
+  Future<void> initSquarePOS() async {
+    await SquarePos.init('test', 'test');
+
+    bool? canRequest;
+    String? message;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await SquarePos.platformVersion ?? 'Unknown platform version';
+      canRequest = await SquarePos.canRequest;
+      message = (canRequest == true)
+          ? 'Square POS installed'
+          : 'Square POS not installed';
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      message = 'Failed to check is Square POS is installed.';
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -42,7 +49,23 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _canRequest = canRequest;
+      _message = message;
+    });
+  }
+
+  _requestPayment() async {
+    var request = SquarePosPaymentRequest(
+        money: SquarePosMoney(amountCents: 100, currencyCode: "USD"),
+        supportedTenderTypes: [
+          SquarePosTenderType.card,
+          SquarePosTenderType.cardOnFile,
+          SquarePosTenderType.squareGiftCard
+        ]);
+    var response = await SquarePos.requestPayment(request);
+
+    setState(() {
+      _response = response;
     });
   }
 
@@ -54,8 +77,15 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+            child: Column(children: [
+          Text('Can Request: $_canRequest\n'),
+          Text('Message: $_message\n'),
+          if (_canRequest ?? false)
+            TextButton(
+                onPressed: () => _requestPayment(),
+                child: Text('Request: \$1.00')),
+          if (_response != null) Text('Response: $_response\n'),
+        ])),
       ),
     );
   }

@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+import 'models/square_pos_money.dart';
 import 'models/square_pos_plugin_response.dart';
 import 'models/square_pos_payment_request.dart';
 import 'models/square_pos_payment_response.dart';
 
+export 'models/square_pos_money.dart';
 export 'models/square_pos_plugin_response.dart';
 export 'models/square_pos_payment_request.dart';
 export 'models/square_pos_payment_response.dart';
