@@ -1,5 +1,6 @@
 /// Response returned from native platform
 class SquarePosPluginResponse {
+  /// Build response using map recieved from native platform
   SquarePosPluginResponse.fromMap(Map<dynamic, dynamic> response)
       : methodName = response['methodName'],
         status = response['status'],

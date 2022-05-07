@@ -1,3 +1,4 @@
+/// Payment response returned from native platform
 class SquarePosPaymentResponse {
   late String? transactionID;
   late String clientTransactionID;
@@ -9,6 +10,7 @@ class SquarePosPaymentResponse {
     this.userInfoString,
   });
 
+  /// Build response using map recieved from native platform
   SquarePosPaymentResponse.fromMap(Map<dynamic, dynamic> response) {
     transactionID = response['transactionID'];
     clientTransactionID = response['clientTransactionID'];

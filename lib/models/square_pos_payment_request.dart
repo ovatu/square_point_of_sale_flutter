@@ -1,12 +1,6 @@
 import 'package:square_pos/models/square_pos_money.dart';
 
-enum SquarePosTenderType {
-  card,
-  cash,
-  other,
-  squareGiftCard,
-  cardOnFile
-}
+enum SquarePosTenderType { card, cash, other, squareGiftCard, cardOnFile }
 
 extension SquarePosTenderTypeValue on SquarePosTenderType {
   String get mapValue {
@@ -25,6 +19,7 @@ extension SquarePosTenderTypeValue on SquarePosTenderType {
   }
 }
 
+/// Payment request send to native platform
 class SquarePosPaymentRequest {
   SquarePosMoney money;
   String? userInfoString;
@@ -49,13 +44,15 @@ class SquarePosPaymentRequest {
     return 'Money: $money, UserInfoString: $userInfoString, LocationID: $locationID, Notes: $notes, CustomerID: $customerID, SupportedTenderTypes: $supportedTenderTypes, ReturnsAutomaticallyAfterPayment: $returnsAutomaticallyAfterPayment';
   }
 
+  /// Map to send to native platform
   Map<String, dynamic> toMap() => {
-    'money': money.toMap(),
-    'userInfoString': userInfoString,
-    'locationID': locationID,
-    'notes': notes,
-    'customerID': customerID,
-    'supportedTenderTypes': supportedTenderTypes?.map((e) => e.mapValue).toList(),
-    'returnsAutomaticallyAfterPayment': returnsAutomaticallyAfterPayment
-  };
+        'money': money.toMap(),
+        'userInfoString': userInfoString,
+        'locationID': locationID,
+        'notes': notes,
+        'customerID': customerID,
+        'supportedTenderTypes':
+            supportedTenderTypes?.map((e) => e.mapValue).toList(),
+        'returnsAutomaticallyAfterPayment': returnsAutomaticallyAfterPayment
+      };
 }
