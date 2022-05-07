@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Update documentation
+
 ## 0.1.2
 
 * Update documentation, format code

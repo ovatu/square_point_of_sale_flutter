@@ -1,6 +1,6 @@
 name: square_pos
 description: Flutter wrapper for the Square POS SDK. With this plugin, your app can easily request payment via the Square POS app on Android and iOS.
-version: 0.1.2
+version: 0.1.3
 repository: https://github.com/ovatu/square_point_of_sale_flutter
 homepage: https://ovatu.com/us
 
