@@ -1,10 +1,10 @@
-# square_pos
+# Square POS SDK for Flutter
 
 [![pub package](https://img.shields.io/pub/v/square_pos.svg)](https://pub.dev/packages/square_pos) [![likes](https://badges.bar/square_pos/likes)](https://pub.dev/packages/square_pos/score) [![popularity](https://badges.bar/square_pos/popularity)](https://pub.dev/packages/square_pos/score)  [![pub points](https://badges.bar/square_pos/pub%20points)](https://pub.dev/packages/square_pos/score)
 
 A Flutter wrapper to use the Square POS SDK.
 
-With this plugin, your app can easily request payment via the Square POD app on Android and iOS.
+With this plugin, your app can easily request payment via the Square POS app on Android and iOS.
 
 ## Prerequisites
 
