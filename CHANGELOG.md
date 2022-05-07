@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.1.0
 
-* TODO: Describe initial release.
+* Initial release: Full suppport for Square POS API on both Android and iOS
