@@ -1,7 +1,12 @@
 /// Payment response returned from native platform
 class SquarePosPaymentResponse {
+  /// Server ID for the transation
   late String? transactionID;
+
+  /// Client ID for the transaction
   late String clientTransactionID;
+
+  /// The userInfo that you passed in with the request
   late String? userInfoString;
 
   SquarePosPaymentResponse({
