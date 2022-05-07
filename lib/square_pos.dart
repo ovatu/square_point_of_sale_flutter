@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-import 'models/square_pos_money.dart';
 import 'models/square_pos_plugin_response.dart';
 import 'models/square_pos_payment_request.dart';
 import 'models/square_pos_payment_response.dart';
@@ -15,14 +14,10 @@ export 'models/square_pos_payment_response.dart';
 class SquarePos {
   static const MethodChannel _channel = MethodChannel('square_pos');
 
-  static Future<String?> get platformVersion async {
-    final String? version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-
   static bool _isInitialized = false;
   static String? _scheme;
 
+  /// Throw an exception if API not yet initialized
   static void _throwIfNotInitialized() {
     if (!_isInitialized || _scheme == null) {
       throw Exception(
