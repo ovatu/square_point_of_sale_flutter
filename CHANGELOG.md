@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Include status and errors in payment response
+
 ## 0.1.3
 
 * Update documentation

@@ -58,12 +58,6 @@ class SquarePos {
 
     final method = await _channel.invokeMethod('requestPayment', request);
     final response = SquarePosPluginResponse.fromMap(method);
-
-    if (!response.status) {
-      throw response.message?['errors'] ??
-          'There was an error processing payment with Square POS.';
-    }
-
     return SquarePosPaymentResponse.fromMap(response.message!);
   }
 }

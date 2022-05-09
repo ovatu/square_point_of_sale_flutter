@@ -27,11 +27,15 @@ public class SwiftSquarePosPlugin: NSObject, FlutterPlugin {
             if let error = response.error {
                 // Handle a failed request.
                 currentOp.response.status = false
-                currentOp.response.message = ["errors": error.localizedDescription]
+                currentOp.response.message = [
+                    "status": false,
+                    "errors": error.localizedDescription
+                ]
             } else {
                 // Handle a successful request.
                 currentOp.response.status = true
                 currentOp.response.message = [
+                    "status": true,
                     "clientTransactionID": response.clientTransactionID,
                     "transactionID": response.transactionID,
                     "userInfoString": response.userInfoString

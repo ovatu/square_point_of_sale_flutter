@@ -171,9 +171,13 @@ class SquarePosPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRe
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
     Log.d(tag, "onActivityResult - RequestCode: $requestCode - Result Code: $resultCode")
 
-    val currentOp: SquarePosPluginResponseWrapper = when (SquarePosTask.valueOf(requestCode)) {
-      SquarePosTask.REQUEST_PAYMENT -> operations["requestPayment"]!!
+    val currentOp: SquarePosPluginResponseWrapper? = when (SquarePosTask.valueOf(requestCode)) {
+      SquarePosTask.REQUEST_PAYMENT -> operations["requestPayment"]
       else -> currentOperation
+    }
+
+    if (currentOp == null) {
+      return false
     }
 
     if (data != null && data.extras != null) {
@@ -190,6 +194,7 @@ class SquarePosPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRe
             Log.d(tag, "requestMetadata: ${success.requestMetadata}")
 
             currentOp.response.message = mutableMapOf(
+                    "status" to true,
                     "clientTransactionID" to success.clientTransactionId,
                     "transactionID" to success.serverTransactionId,
                     "userInfoString" to success.requestMetadata,
@@ -199,6 +204,7 @@ class SquarePosPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRe
             val error = posClient!!.parseChargeError(data)
 
             currentOp.response.message = mutableMapOf(
+                    "status" to false,
                     "errors" to error.debugDescription,
             )
           }
