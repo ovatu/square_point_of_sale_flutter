@@ -33,7 +33,7 @@ class SquarePosPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRe
   private lateinit var activity: Activity
 
   private var operations: MutableMap<String, SquarePosPluginResponseWrapper> = mutableMapOf()
-  private var currentOperation: SquarePosPluginResponseWrapper?
+  private var currentOperation: SquarePosPluginResponseWrapper? = null
 
   private var posClient: PosClient? = null
 
