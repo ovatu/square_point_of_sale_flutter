@@ -173,7 +173,7 @@ class SquarePosPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, PluginRe
 
     val currentOp: SquarePosPluginResponseWrapper? = when (SquarePosTask.valueOf(requestCode)) {
       SquarePosTask.REQUEST_PAYMENT -> operations["requestPayment"]
-      else -> currentOperation
+      else -> null
     }
 
     if (currentOp == null) {
