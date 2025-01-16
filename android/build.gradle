@@ -25,6 +25,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace = 'com.ovatu.square_pos'
+    
     compileSdkVersion 31
 
     compileOptions {
